@@ -40,6 +40,7 @@ var CustomBtn = (function (_super) {
         return _this;
     }
     CustomBtn.prototype.addToStage = function () {
+        console.log(this.fontColor, this.bgcolor, this.bgAlpha);
         this.btnlabel.x = this.btnWidth / 2;
         this.btnlabel.y = this.btnHeight / 2;
         this.btnlabel.textColor = this.fontColor;
