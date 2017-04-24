@@ -134,6 +134,7 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.startCreateScene = function () {
+        console.log("ads");
         this.addChild(new Opening());
         // let sky = this.createBitmapByName("bg_jpg");
         // this.addChild(sky);

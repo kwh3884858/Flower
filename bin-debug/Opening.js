@@ -15,13 +15,16 @@ var Opening = (function (_super) {
     function Opening() {
         var _this = _super.call(this) || this;
         _this.skinName = "title";
-        _this.once(egret.Event.ADDED_TO_STAGE, _this.addToStage, _this);
         return _this;
     }
     Opening.prototype.addToStage = function () {
-        var customBtn = new CustomBtn("kaish", 100, 80, 30, 20, 0x0c0c0c, 0xff0000, 20, 100, 100);
+        var customBtn = new CustomBtn("启始", 170, 680, 105, 50, 0x0c0c0c, 0xffffff, 0.5, 50, 300, 150);
+        customBtn.touchEnabled = true;
         this.addChild(customBtn);
         //show the opening of game 显示游戏开场背景
+    };
+    Opening.prototype.touchBegin = function (evt) {
+        console.log("hah!It`s working!");
     };
     return Opening;
 }(eui.Component));

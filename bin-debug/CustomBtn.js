@@ -41,12 +41,10 @@ var CustomBtn = (function (_super) {
     }
     CustomBtn.prototype.addToStage = function () {
         console.log(this.fontColor, this.bgcolor, this.bgAlpha);
-        this.btnlabel.x = this.btnWidth / 2;
-        this.btnlabel.y = this.btnHeight / 2;
         this.btnlabel.textColor = this.fontColor;
         this.btnlabel.size = this.fontSize;
         var shp = new egret.Shape();
-        shp.graphics.beginFill(this.bgcolor, 1);
+        shp.graphics.beginFill(this.bgcolor, this.bgAlpha);
         shp.graphics.drawRect(0, 0, this.btnWidth, this.btnHeight);
         shp.graphics.endFill();
         this.addChild(shp);

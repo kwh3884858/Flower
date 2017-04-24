@@ -5,6 +5,17 @@
  * CustomBtn 自定义按钮类，可以设置带矢量背景的按钮。默认样式为黑色字体，白色半透明背景。
  */
 class CustomBtn extends egret.DisplayObjectContainer {
+
+    private btnBg: egret.Shape;
+    private btnlabel: eui.Label;
+    
+    private fontColor:number = 0x000000;
+    private bgcolor: number = 0xff0000;
+    private bgAlpha :number = 0.5;
+    private fontSize :number = 30;
+    private btnHeight: number = 100;
+    private btnWidth: number = 60;
+    
     constructor(text: string, containerX: number, ContainerY: number, textX: number, textY: number, fontColor?: number, bgColor?: number, bgAlpha?:number , fontSize?: number, btnWidth?: number, btnHeight?: number) {
         super();
         this.bgcolor = bgColor;
@@ -22,28 +33,18 @@ class CustomBtn extends egret.DisplayObjectContainer {
         this.fontSize = fontSize;
         this.btnWidth = btnWidth;
         this.btnHeight = btnHeight;
+        
         this.once(egret.Event.ADDED_TO_STAGE, this.addToStage, this);
     }
 
-    private btnBg: egret.Shape;
-    private btnlabel: eui.Label;
-    
-    private fontColor:number = 0x000000;
-    private bgcolor: number = 0xff0000;
-    private bgAlpha :number = 0.5;
-    private fontSize :number = 30;
-    private btnHeight: number = 100;
-    private btnWidth: number = 60;
-    
+
     private addToStage() {
         console.log(this.fontColor,this.bgcolor,this.bgAlpha);
-        this.btnlabel.x = this.btnWidth / 2;
-        this.btnlabel.y = this.btnHeight / 2;
         this.btnlabel.textColor = this.fontColor;
         this.btnlabel.size = this.fontSize;
 
         var shp: egret.Shape = new egret.Shape();
-        shp.graphics.beginFill(this.bgcolor, 1);
+        shp.graphics.beginFill(this.bgcolor, this.bgAlpha);
         shp.graphics.drawRect(0, 0, this.btnWidth, this.btnHeight);
         shp.graphics.endFill();
         this.addChild(shp);

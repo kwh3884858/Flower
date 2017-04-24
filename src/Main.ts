@@ -129,7 +129,9 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected startCreateScene(): void {
+        console.log("ads");
         this.addChild(new Opening());
+
         
         // let sky = this.createBitmapByName("bg_jpg");
         // this.addChild(sky);
